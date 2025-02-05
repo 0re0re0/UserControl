@@ -13,7 +13,6 @@
                 <table class="basededatos-table">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Correo Electrónico</th>
                             <th>Fecha de Nacimiento</th>
@@ -24,9 +23,6 @@
                     <tbody>
                         <% users.forEach(user=> { %>
                             <tr>
-                                <td>
-                                    <%= user._id %>
-                                </td>
                                 <td>
                                     <%= user.name %>
                                         <%= user.surname %>
@@ -63,7 +59,7 @@
                 <table class="basededatos-table">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Usuario</th>
                             <th>Último Inicio de Sesión</th>
                             <th>Intentos Fallidos</th>
                             <th>Estado de Sesión</th>
@@ -74,7 +70,7 @@
                             <% activities.forEach(activity=> { %>
                                 <tr>
                                     <td>
-                                        <%= activity.userId ? activity.userId._id : 'N/A' %>
+                                        <%= activity.userId ? activity.userId.email : 'N/A' %>
                                     </td>
                                     <td>
                                         <%= activity.lastLogin ? activity.lastLogin.toLocaleString() : 'No disponible'
