@@ -9,7 +9,6 @@ const userSchema = new Schema({
   surname: String,
   dob: Date,
   gender: String,
-  profilePic: String
 }, { timestamps: true });
 
 userSchema.pre('save', async function (next) {

@@ -18,7 +18,6 @@
                             <th>Correo Electrónico</th>
                             <th>Fecha de Nacimiento</th>
                             <th>Sexo</th>
-                            <th>Foto de Perfil</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -40,13 +39,6 @@
                                 </td>
                                 <td>
                                     <%= user.gender %>
-                                </td>
-                                <td>
-                                    <% if (user.profilePic) { %>
-                                        <img src="<%= user.profilePic %>" alt="Foto de perfil" width="50">
-                                        <% } else { %>
-                                            <span>No disponible</span>
-                                            <% } %>
                                 </td>
                                 <td>
                                     <a href="/edit-user/<%= user._id %>" class="btn small-btn"

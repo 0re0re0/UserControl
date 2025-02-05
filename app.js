@@ -7,7 +7,6 @@ const path = require('path');
 const morgan = require('morgan');
 const fs = require('fs');
 const mongoose = require('mongoose');
-const multer = require('multer');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
@@ -52,20 +51,7 @@ mongoose
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'vistas'));
 
-// ==========================================
-// Configuración de Multer para subida de archivos
-// ==========================================
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, 'public', 'uploads'));
-  },
-  filename: function (req, file, cb) {
-    const ext = path.extname(file.originalname);
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, `${uniqueSuffix}${ext}`);
-  }
-});
-const upload = multer({ storage });
+
 
 // ==========================================
 // Middleware generales
@@ -74,7 +60,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use('/uploads', express.static('uploads'));
 
 // Configuración de logs
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
@@ -198,7 +183,7 @@ app.get('/sign-up', (req, res) => {
   res.render('sign-up', { title: 'Crear cuenta' });
 });
 
-app.post('/sign-up', upload.single('profilePic'), async (req, res) => {
+app.post('/sign-up', async (req, res) => {
   try {
     const { email, password, name, surname, dob, gender } = req.body;
 
@@ -218,7 +203,6 @@ app.post('/sign-up', upload.single('profilePic'), async (req, res) => {
       surname,
       dob,
       gender,
-      profilePic: req.file ? `/uploads/${req.file.filename}` : null
     });
 
     await newUser.save();
@@ -302,7 +286,7 @@ app.get('/edit-user/:id', async (req, res) => {
   }
 });
 
-app.post('/edit-user/:id', upload.single('profilePic'), async (req, res) => {
+app.post('/edit-user/:id', async (req, res) => {
   try {
     const { name, surname, email, dob, gender } = req.body;
     const updateFields = {};
@@ -311,9 +295,6 @@ app.post('/edit-user/:id', upload.single('profilePic'), async (req, res) => {
     if (email) updateFields.email = email;
     if (dob) updateFields.dob = new Date(dob);
     if (gender) updateFields.gender = gender;
-    if (req.file) {
-      updateFields.profilePic = `/uploads/${req.file.filename}`;
-    }
 
     const updatedUser = await User.findByIdAndUpdate(req.params.id, updateFields, { new: true });
     if (!updatedUser) {
