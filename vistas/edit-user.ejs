@@ -1,0 +1,52 @@
+<html lang="es">
+<%- include('./partials/head.ejs') %>
+
+    <body>
+        <%- include('./partials/navegar.ejs') %>
+            <div class="sign-up-form-container">
+                <div class="sign-up-form">
+                    <h1>Editar Usuario</h1>
+
+                    <form action="/edit-user/<%= user._id %>" method="POST" enctype="multipart/form-data">
+
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" value="<%= user.name %>" required>
+
+                        <label for="surname">Apellido:</label>
+                        <input type="text" id="surname" name="surname" value="<%= user.surname %>" required>
+
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" value="<%= user.email %>" required>
+
+                        <label for="dob">Fecha de Nacimiento:</label>
+                        <input type="date" id="dob" name="dob"
+                            value="<%= user.dob ? user.dob.toISOString().split('T')[0] : '' %>" required>
+
+                        <div class="gender-options">
+                            <label>Sexo:</label>
+                            <input type="radio" id="male" name="gender" value="male" <%=user.gender==='male' ? 'checked'
+                                : '' %>>
+                            <label for="male">Hombre</label>
+
+                            <input type="radio" id="female" name="gender" value="female" <%=user.gender==='female'
+                                ? 'checked' : '' %>>
+                            <label for="female">Mujer</label>
+
+                            <input type="radio" id="other" name="gender" value="other" <%=user.gender==='other'
+                                ? 'checked' : '' %>>
+                            <label for="other">Indefinido</label>
+                        </div>
+
+                        <label for="profilePic">Foto de Perfil:</label>
+                        <input type="file" id="profilePic" name="profilePic" accept="image/*"
+                            class="profilePhoto-button">
+
+                        <button type="submit" class="signup-button">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+            </div>
+            <%- include('./partials/footer.ejs') %>
+    </body>
+
+</html>

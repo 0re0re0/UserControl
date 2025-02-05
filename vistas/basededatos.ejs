@@ -1,0 +1,113 @@
+<html lang="es">
+<%- include ('./partials/head.ejs') %>
+
+    <body>
+        <%- include ('./partials/navegar.ejs') %>
+
+
+            <div class="basededatos-header">
+                <h1>Base de Datos de Usuarios</h1>
+            </div>
+            <div class="basededatos-table-container">
+
+                <table class="basededatos-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo Electrónico</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Sexo</th>
+                            <th>Foto de Perfil</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach(user=> { %>
+                            <tr>
+                                <td>
+                                    <%= user._id %>
+                                </td>
+                                <td>
+                                    <%= user.name %>
+                                        <%= user.surname %>
+                                </td>
+                                <td>
+                                    <%= user.email %>
+                                </td>
+                                <td>
+                                    <%= user.dob ? user.dob.toLocaleDateString('es-ES') : 'No disponible' %>
+                                </td>
+                                <td>
+                                    <%= user.gender %>
+                                </td>
+                                <td>
+                                    <% if (user.profilePic) { %>
+                                        <img src="<%= user.profilePic %>" alt="Foto de perfil" width="50">
+                                        <% } else { %>
+                                            <span>No disponible</span>
+                                            <% } %>
+                                </td>
+                                <td>
+                                    <a href="/edit-user/<%= user._id %>" class="btn small-btn"
+                                        style="margin-right: 10px;">Editar</a>
+
+                                    <form action="/delete-user/<%= user._id %>" method="POST" style="display:inline;"
+                                        onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usuario?');">
+                                        <button type="submit" class="btn small-btn">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+                <br>
+            </div>
+
+            <div class="basededatos-header">
+                <h1>Actividad de Usuarios</h1>
+            </div>
+            <div class="basededatos-table-container">
+                <table class="basededatos-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Último Inicio de Sesión</th>
+                            <th>Intentos Fallidos</th>
+                            <th>Estado de Sesión</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (activities && activities.length> 0) { %>
+                            <% activities.forEach(activity=> { %>
+                                <tr>
+                                    <td>
+                                        <%= activity.userId ? activity.userId._id : 'N/A' %>
+                                    </td>
+                                    <td>
+                                        <%= activity.lastLogin ? activity.lastLogin.toLocaleString() : 'No disponible'
+                                            %>
+                                    </td>
+                                    <td>
+                                        <%= activity.failedAttempts %>
+                                    </td>
+                                    <td>
+                                        <%= activity.isLoggedIn ? 'Activo' : 'Inactivo' %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td colspan="4">No hay registros de actividad.</td>
+                                        </tr>
+                                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="basededatos-footer-wrapper">
+                <%- include('partials/footer') %>
+            </div>
+    </body>
+
+</html>

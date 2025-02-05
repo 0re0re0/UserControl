@@ -1,0 +1,18 @@
+<nav class="navbar">
+    <a href="/" class="logo">.UserControl</a>
+
+    <ul class="nav-links">
+        <li><a href="/basededatos" class="centered-button">Base de Datos</a></li>
+    </ul>
+
+    <div class="nav-buttons">
+        <% if (!user) { %>
+            <a href="/login" class="btn">Login</a>
+            <a href="/sign-up" class="btn primary">sign-Up</a>
+            <% } else { %>
+                <div class="basededatos-logout">
+                    <a href="/logout" class="basededatos-logout">Cerrar Sesión</a>
+                </div>
+                <% } %>
+    </div>
+</nav>

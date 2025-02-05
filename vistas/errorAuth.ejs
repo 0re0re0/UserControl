@@ -1,0 +1,19 @@
+<html lang="es">
+<%- include ('./partials/head.ejs') %>
+
+    <body>
+        <%- include ('./partials/navegar.ejs') %>
+
+            <div class="error-container">
+                <h1 class="error-title">Error: <%= title %>
+                </h1>
+                <p class="error-message">
+                    <%= message %>
+                </p>
+                <a href="/" class="go-home-button">Volver al inicio</a>
+            </div>
+
+            <%- include ('./partials/footer.ejs') %>
+    </body>
+
+</html>

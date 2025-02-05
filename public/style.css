@@ -1,0 +1,986 @@
+/* ==========================================
+   GENERAL RESET
+   ========================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 16px;
+    min-height: 100%;
+    color: color(display-p3 0.8431 0.8471 0.851);
+    background-color: #060F11;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 100px;
+  }
+
+
+/* ==========================================
+   MAIN CONTAINER
+   ========================================== */
+   .main-container {
+    flex: 1;
+    padding: 40px;
+    color: #e0e6ed;
+    margin-top: 60px; 
+    margin-bottom: 80px;
+    overflow: hidden;
+  }
+
+
+/* ==========================================
+   HEADER SECTION
+   ========================================== */
+   .header-section {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .icon-box img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
+  }
+  
+  .title {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 100px;
+    word-wrap: break-word;
+  }
+
+
+
+/* ==========================================
+   NAVBAR STYLES
+   ========================================== */
+ /* Navbar general */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  padding: 10px 20px;
+  position: sticky;
+  margin: 0 auto; 
+  top: 0;
+  z-index: 1000;
+  background-color: #000;
+  border-bottom: 2px solid #1A2225;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Logo */
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00ff7f;
+  margin-right: auto;
+}
+
+/* Botones a la derecha */
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-left: auto; 
+}  
+ /* Contenedor de los enlaces */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.nav-links li a.centered-button {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  display: inline-block;
+  transition: color 0.3s, border 0.3s, padding 0.3s;
+  position: absolute;
+  padding: 12px 18px; 
+  border: 3px solid transparent; 
+  border-radius: 8px;
+  left: 50%; 
+  transform: translateX(-50%); 
+}
+
+/* Hover effect */
+.nav-links li a.centered-button:hover {
+  color: #00ff7f;
+  border: 3px solid #00ff7f;
+}
+
+/* Enlace activo */
+.nav-links li a.centered-button.active {
+  color: #00ff7f;
+  border: 3px solid #00ff7f;
+  border-radius: 8px;
+  padding: 12px 18px;
+}
+  
+  /* Active Link Styles */
+  .nav-links li a.active {
+    color: #00ff7f;
+    border: 3px solid #00ff7f;
+    border-radius: 8px;
+    padding: 12px 18px;
+  }
+
+
+/* ==========================================
+   NAVBAR BUTTONS
+   ========================================== */
+
+  .nav-buttons .btn:hover {
+    background-color: #444;
+  }
+  
+  /* Primary Button */
+  .nav-buttons .btn.primary {
+    background-color: #00ff7f;
+    color: #000;
+    padding: 10px 18px;
+    border: none;
+    font-size: 14px;
+  }
+  
+  .nav-buttons .btn.primary:hover {
+    background-color: #008f5e;
+    color: #fff;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border: 1px solid #008f5e;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'JetBrains Mono', monospace;
+    text-decoration: none;
+  }
+
+/* ==========================================
+   LOGIN FORM STYLES
+   ========================================== */
+.login-form {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #1A2225;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.login-form .title {
+  font-size: 28px;
+  text-align: center;
+  color: #00ff7f;
+  margin: 40px;
+}
+/* TitleA */
+.title {
+  font-size: 28px;
+  text-align: center;
+  color: #00ff7f;
+  margin: 20px auto;
+  max-width: 80%; 
+  line-height: 1.4; 
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+/* Input Fields */
+.input-field {
+  padding: 10px;
+  background-color: #1A2225;
+  border: 1px solid #444;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.input-field:focus {
+  border-color: #00ff7f;
+  outline: none;
+}
+
+/*Create account button in Login*/
+.text-center {
+  text-align: center;
+  color: #e0e6ed;
+  margin-top: 10px;
+}
+
+.create-account-button {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #00ff7f;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.create-account-button:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   LOGIN BUTTON
+   ========================================== */
+
+.btn.primary {
+  background-color: #00ff7f;
+  color: #000;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn.primary:hover {
+  background-color: #008f5e;
+  color: #fff;
+}
+
+/* ==========================================
+   CREATION AND EDITION PROFILE PAGE 
+   ========================================== */
+   .sign-up-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 100px; 
+  }
+  
+  
+  .sign-up-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1A2225;
+    padding: 40px 20px;
+    border-radius: 10px;
+    max-width: 450px;
+    margin: auto;
+    color: #e0e6ed;
+  }
+  
+  .sign-up-form h1 {
+    font-size: 32px;
+    color: #00ff7f;
+    margin-bottom: 40px;
+  }
+  
+  .sign-up-form label {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #e0e6ed;
+  }
+  
+  .sign-up-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #1A2225;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 13px;
+  }
+  
+  .gender-options {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .gender-options input[type="radio"] {
+    display: none;
+  }
+  
+  .gender-options label {
+    padding: 6px 16px;
+    border-radius: 20px;
+    background-color: #1A2225;
+    border: 2px solid #444;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .gender-options input[type="radio"]:checked + label {
+    background-color: #00ff7f;
+    border-color: #00ff7f;
+    color: #000;
+  }
+  
+  .gender-options label:hover {
+    background-color: #444;
+    border-color: #00ff7f;
+  }
+  
+  .sign-up-form input[type="file"] {
+    width: auto;
+    padding: 5px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .sign-up-form input[type="file"]::-webkit-file-upload-button {
+    background-color: #00ff7f;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .sign-up-form input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #008f5e;
+    color: #fff;
+  }
+  
+  .signup-button {
+    padding: 12px 24px;
+    background-color: #00ff7f;
+    color: #000;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    margin-top: 20px;
+    max-width: 300px; 
+    text-align: center; 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+  }
+  
+  .profilePhoto-button{
+    padding: 12px 24px;
+    background-color: #00ff7f;
+    color: #000;
+    font-size: 10px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    margin-top: 20px;
+    max-width: 300px; 
+    text-align: center; 
+    margin-left: auto; 
+    margin-right: auto; 
+  }
+  
+  .sign-up-form button:hover {
+    background-color: #008f5e;
+    color: #fff;
+  }
+
+
+/* ==========================================
+   ERROR STYLES
+   ========================================== */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1A2225;
+  color: #e0e6ed;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-title {
+  font-size: 80px;
+  font-weight: bold;
+  color: #00ff7f;
+  text-align: center;
+  max-width: 90%; 
+  margin-bottom: 70px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.2;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.error-message {
+  font-size: 18px;
+  color: #e0e6ed;
+  margin-bottom: 30px;
+}
+
+.redirect-message {
+  font-size: 16px;
+  color: #e0e6ed;
+  margin-bottom: 50px;
+}
+
+.go-home-button {
+  padding: 12px 24px;
+  background-color: #00ff7f;
+  color: #000;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.go-home-button:hover {
+  background-color: #008f5e;
+  color: #fff;
+}
+
+/* ==========================================
+   DATA BASE STYLES
+   ========================================== */
+.basededatos-header {
+  text-align: center;
+  margin: 40px 0;
+  color: #00ff7f;
+}
+
+.basededatos-header h1 {
+  font-size: 32px;
+  border-bottom: 2px solid #1A2225;
+  padding-bottom: 10px;
+}
+
+.basededatos-table {
+  width: 100%;
+  min-width: 800px; 
+  border-collapse: collapse;
+  margin: 0;
+  background-color: transparent;
+}
+
+
+.basededatos-table th,
+.basededatos-table td {
+  padding: 12px 20px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.basededatos-table th {
+  background-color: #000;
+  color: #00ff7f;
+  font-size: 16px;
+  text-align: center;
+
+}
+
+.basededatos-table td {
+  font-size: 14px;
+  text-align: center;
+}
+
+.basededatos-table tr:hover {
+  background-color: #333;
+}
+
+.basededatos-table img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 2px solid #00ff7f;
+}
+
+.basededatos-table tr:nth-child(even) {
+  background-color: #1F2A2C;
+}
+
+.basededatos-logout {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.basededatos-logout a {
+  text-decoration: none;
+  color: #00ff7f;
+  padding: 12px 24px;
+  border: 1px solid #00ff7f;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.basededatos-logout a:hover {
+  background-color: #00ff7f;
+  color: #000;
+}
+
+
+.btn.small-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  background-color: #1A2225;
+  border: 2px solid #00ff7f;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn.small-btn:hover {
+  background-color: #00ff7f;
+  color: #000;
+}
+
+
+
+/* ==========================================
+   FOOTER STYLES
+   ========================================== */
+
+footer {
+  background-color: #000;
+  color: #e0e6ed;
+  padding: 20px 40px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-top: 2px solid #1A2225;
+
+}
+
+footer .footer-text {
+  font-size: 14px;
+  color: #fff;
+}
+
+.basededatos-footer-wrapper footer {
+  position: relative;
+  margin-top: 40px; 
+}
+
+@media screen and (max-width: 768px) {
+  .basededatos-footer-wrapper footer {
+      position: relative;
+      margin-top: 30px;
+  }
+}
+
+
+
+/* ==========================================
+   MEDIA QUERIES
+   ========================================== */
+
+/* Estilos base para las tablas */
+.basededatos-table-container {
+  width: 100%;
+  margin: 0 auto 40px auto;
+  padding: 0 15px;
+  position: relative;
+}
+
+.basededatos-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1A2225;
+  color: #e0e6ed;
+  border: 1px solid #444;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Móviles pequeños (320px - 480px) */
+@media screen and (max-width: 480px) {
+  /* Ajustes de navegación */
+  .navbar {
+    flex-direction: column;
+    padding: 8px;
+    height: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #000;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-links {
+    order: 2;
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-links li a.centered-button {
+    position: static;
+    transform: none;
+    width: auto;
+    font-size: 13px;
+    padding: 8px 12px;
+    margin: 5px auto;
+    display: inline-block;
+  }
+
+  .nav-buttons {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+    margin: 5px 0;
+  }
+
+  /* Ajustes de contenedor principal */
+  .main-container {
+    margin-top: 180px;
+    margin-bottom: 80px;
+    padding: 15px;
+  }
+
+  /* Ajustes de títulos */
+  h1, .title, .login-form .title, .sign-up-form h1 {
+    font-size: 20px;
+    white-space: normal;
+    overflow: visible;
+    margin: 15px auto;
+    padding: 0 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    white-space: normal;
+    overflow: visible;
+  }
+
+  /* Ajustes de formularios */
+  .login-form,
+  .sign-up-form {
+    width: 95%;
+    padding: 15px;
+    margin: 180px auto 80px auto;
+    max-width: none;
+  }
+
+  .form-group {
+    margin: 8px 0;
+  }
+
+  .input-field {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .gender-options {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .gender-options label {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+
+  /* Ajustes de tabla */
+  .basededatos-table-container {
+    margin-bottom: 60px;
+    padding: 0 10px;
+  }
+
+  .basededatos-table {
+    font-size: 12px;
+  }
+
+  .basededatos-table th,
+  .basededatos-table td {
+    padding: 10px 8px;
+  }
+
+  .basededatos-table img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .basededatos-table .btn.small-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    margin: 2px;
+  }
+
+  /* Ajustes de botones */
+  .btn, .btn.primary, .signup-button {
+    padding: 8px 16px;
+    font-size: 13px;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  /* Ajustes de footer */
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 1000;
+    background-color: #000;
+  }
+}
+
+/* Tablets y móviles grandes (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 1000;
+    background-color: #000;
+  }
+
+  .main-container {
+    margin-top: 160px;
+    margin-bottom: 80px;
+    padding: 20px;
+  }
+
+  .navbar .logo {
+    font-size: 22px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  h1, .title {
+    font-size: 24px;
+    white-space: normal;
+    overflow: visible;
+  }
+
+  .login-form,
+  .sign-up-form {
+    width: 85%;
+    padding: 20px;
+    margin: 160px auto 80px auto;
+  }
+
+  /* Ajustes de tabla */
+  .basededatos-table-container {
+    margin-bottom: 60px;
+    padding: 0 15px;
+  }
+
+  .basededatos-table {
+    font-size: 13px;
+  }
+
+  .basededatos-table th,
+  .basededatos-table td {
+    padding: 12px 10px;
+  }
+
+  .btn, .btn.primary {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    z-index: 1000;
+    background-color: #000;
+  }
+}
+
+/* Tablets grandes y laptops pequeñas (769px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #000;
+  }
+
+  .main-container {
+    margin-top: 120px;
+    margin-bottom: 80px;
+    padding: 25px;
+  }
+
+  .login-form,
+  .sign-up-form {
+    margin: 120px auto 80px auto;
+    width: 70%;
+    max-width: 600px;
+  }
+
+  /* Ajustes de tabla */
+  .basededatos-table-container {
+    margin-bottom: 60px;
+    padding: 0 20px;
+  }
+
+  .basededatos-table {
+    font-size: 14px;
+  }
+
+  .basededatos-table th,
+  .basededatos-table td {
+    padding: 15px;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+    background-color: #000;
+  }
+}
+
+/* Ajustes generales para todos los tamaños móviles */
+@media screen and (max-width: 1024px) {
+  html, body {
+    padding-bottom: 60px;
+    overflow-x: hidden;
+  }
+
+  .basededatos-table-container {
+    margin: 15px 0 30px 0;
+  }
+  .basededatos-table {
+    min-width: 600px;
+  }
+
+  .basededatos-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #000;
+  }
+  .basededatos-table th,
+  .basededatos-table td {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+
+  .basededatos-table .btn.small-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}
+
+  .error-title {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .error-message {
+    font-size: 16px;
+  }
+
+
+/* Ajustes para orientación horizontal en móviles */
+@media screen and (max-height: 500px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+  }
+
+  .main-container {
+    margin-top: 120px;
+    margin-bottom: 80px;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+/* Eliminar estos media queries específicos de la tabla que causan problemas */
+@media screen and (max-width: 768px) {
+  .basededatos-table {
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .basededatos-table {
+    transform: none;
+  }
+}
+
+/* Ajuste para el wrapper del footer en la página de base de datos */
+.basededatos-footer-wrapper footer {
+  position: fixed;
+  margin-top: 0;
+}
