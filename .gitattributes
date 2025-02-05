@@ -1,0 +1,14 @@
+# Ignorar CSS en las estadísticas
+*.css linguist-detectable=false
+
+# Asegurar que EJS sea detectado y destacado
+*.ejs linguist-detectable=true
+*.ejs linguist-language=EJS
+
+
+*.js linguist-detectable=true
+*.js linguist-language=JavaScript
+
+# Tratar otros archivos como documentación (opcional)
+*.html linguist-documentation=true
+*.md linguist-documentation=true
