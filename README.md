@@ -80,6 +80,10 @@ npm run dev
 
 ```
 
+## Licencia
+
+Este proyecto está bajo la Licencia MIT Si decides usar este proyecto, por favor, mencióname.
+
 ## Contacto
 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
